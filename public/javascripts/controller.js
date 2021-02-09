@@ -66,20 +66,6 @@ $(document).ready(function() {
     1000
   );
 
-  /*$.getJSON('/jsonset', function(data)
-{
-	for(i=0;i<data.quizlist.length;i++)
-	{
-		questionBank[i]=new Array;
-		questionBank[i][0]=data.quizlist[i].question;
-		questionBank[i][1]=data.quizlist[i].option1;
-		questionBank[i][2]=data.quizlist[i].option2;
-		questionBank[i][3]=data.quizlist[i].option3;
-		questionBank[i][4]=data.quizlist[i].option4;
-	}
-	numberOfQuestions=questionBank.length;
-	displayQuestion();
-})//gtjson*/
 
   $.post(
     "/jsonset",
@@ -156,33 +142,7 @@ $(document).ready(function() {
       console.log(optionid);
       console.log(answertext);
 
-      /*	if(questionLock==false)
-		{
-			questionLock=true;
-			//correct answer
-			if(this.id==rnd)
-			{
-				//	$(stage).append('<div id="re" class="feedback1">CORRECT</div>');
-				//	$('#re').hide();
-					score++;
-
-					//Review Code
-					scorehold[questionNumber]=$(this).text();
-					//
-			}
-			//wrong answer
-			if(this.id!=rnd)
-			{
-				//$(stage).append('<div id="re" class="feedback2">WRONG</div>');
-				//$('#re').hide();
-
-				//Review Code
-				scorehold[questionNumber]=$(this).text();
-				//
-			}
-
-		} */
-
+     
       $(stage).append(
         '<div id="start" class="buttons"><div align="center">Confirm</div></div>'
       );
@@ -192,10 +152,8 @@ $(document).ready(function() {
         if (optionid == rnd) {
           score++;
         }
-
         //Review Code
         scorehold[questionNumber] = answertext;
-        //
 
         $(".buttons").css({ background: "#FF0000" });
 

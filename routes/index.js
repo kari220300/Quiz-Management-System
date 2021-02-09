@@ -30,12 +30,11 @@ let set;
 router.get("/", function(req, res) {
   //Checks if already a logged session of user exists , else takes to login page
   if (sess) {
-    //Directs to Main Bullseye Page
+    //Directs to Main Page
     res.redirect("/quizmain");
   } else {
     //res.render('index', { title: 'Express' });
     res.sendFile(path.join(__dirname, "..", "/public/html/login.html"));
-    //res.sendFile(path.join('..','/html/login.html'));
   }
 });
 
@@ -98,7 +97,7 @@ router.post("/registeraction", function(req, res) {
   });
 });
 
-/* GET Bullseye Main page. */
+
 router.get("/quizmain", function(req, res) {
   //Condition for Existing Session
   if (sess) {
@@ -171,10 +170,6 @@ router.post("/topicselect", function(req, res) {
   res.sendFile(path.join(__dirname, "..", "/public/html/questionpage.html"));
 });
 
-/* GET Request for JSON (Question-Answer) Set */
-/*router.get('/jsonset', function(req, res, next) {
-  //res.json(set);
-});*/
 
 /* POST Request for JSON (Question-Answer) Set */
 router.post("/jsonset", function(req, res) {
